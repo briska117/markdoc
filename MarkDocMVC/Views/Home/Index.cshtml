@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+<textarea id="inp_editor1" rows="30" style="width:100%" >
+    @ViewData["marker"];
+</textarea>
+
+<markdown normalize-whitespace="true">
+   @ViewData["marker"];
+</markdown>
