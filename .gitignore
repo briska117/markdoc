@@ -6,3 +6,5 @@
 /MarkDocMVC/bin/Debug/net6.0
 /MarkDocMVC/obj
 /MarkDocMVC/wwwroot/lib
+/.vs/TestMarkDoc/DesignTimeBuild
+*.v1
