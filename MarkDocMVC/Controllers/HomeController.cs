@@ -1,5 +1,6 @@
 ﻿using MarkDocMVC.Models;
 using MarkDocMVC.Services.FileService;
+using MarkDocMVC.Services.GitService;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,17 +8,20 @@ namespace MarkDocMVC.Controllers {
     public class HomeController : Controller {
         private readonly ILogger<HomeController> _logger;
         private readonly IFileService _fileService;
+        private readonly IGitService gitService;
         private IWebHostEnvironment Environment;
         public string markdownLabel = "";
 
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment _environment, IFileService fileService) {
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment _environment, IFileService fileService, IGitService gitService) {
             _logger = logger;
             Environment = _environment;
             _fileService = fileService;
+            this.gitService = gitService;
         }
 
         public IActionResult Index() {
             ViewData["marker"] = this._fileService.ReadFile(Environment.WebRootPath + "/posts/MarkdownTagHelper.md");
+            this.gitService.CommitChanges("RocoElWuero", "usuario917@gmail.com");
 
             return View();
         }

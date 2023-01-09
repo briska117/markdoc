@@ -1,4 +1,5 @@
 ﻿using LibGit2Sharp;
+using System.IO;
 
 namespace MarkDocMVC.Services.FileService {
     public class FileService: IFileService {
@@ -52,52 +53,5 @@ namespace MarkDocMVC.Services.FileService {
                 return null;
             }
         }
-        public void GetBranches() {
-            using (var repo = new Repository(@"C:\Users\oscar\Projects\markdoce")) {
-                var branches = repo.Branches;
-                foreach (var b in branches) {
-                    Console.WriteLine(b.FriendlyName);
-                }
-            }
-        }
-        public void GetCommits() {
-            using (var repo = new Repository(@"C:\Users\oscar\Projects\markdoce")) {
-                foreach (var commit in repo.Commits) {
-                    Console.WriteLine(
-                        $"{commit.Id.ToString().Substring(0, 7)} " +
-                        $"{commit.Author.When.ToLocalTime()} " +
-                        $"{commit.MessageShort} " +
-                        $"{commit.Author.Name}");
-                }
-            }
-        }
-        public void GetCommitById(string commitId) {
-            using (var repo = new Repository(@"C:\Users\oscar\Projects\markdoce")) {
-                foreach (var commit in repo.Commits) {
-                    if (commit.Id.ToString() == commitId) {
-                        Console.WriteLine(
-                            $"{commit.Id.ToString().Substring(0, 7)} " +
-                            $"{commit.Author.When.ToLocalTime()} " +
-                            $"{commit.MessageShort} " +
-                            $"{commit.Author.Name}");
-                    }
-                }
-            }
-        }
-        public void CommitChanges() {
-            
-        }
-        public void PushChanges() {
-            
-        }
-        public void IGitService () {
-            string commitId = "b9f5bdb7ff1fbdf17831b89ba28196ee10482f27";
-            //GetBranches();
-            //GetCommits();
-            GetCommitById(commitId);
-            //CommitChanges();
-            //PushChanges();
-        }
-
     }
 }
