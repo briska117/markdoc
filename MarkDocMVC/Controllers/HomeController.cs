@@ -74,7 +74,7 @@ namespace MarkDocMVC.Controllers {
             DirectoryInfo dirInfo = new DirectoryInfo($"{Environment.WebRootPath}/posts/");
             List<FileInfo> files = dirInfo.GetFiles().ToList();
 
-            return View(files);
+            return Ok(files);
         }
 
         [HttpGet]
