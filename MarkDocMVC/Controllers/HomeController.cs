@@ -75,7 +75,7 @@ namespace MarkDocMVC.Controllers {
             List<FileInfo> files = dirInfo.GetFiles().ToList();
             List<String> fileList = new List<string>();
             foreach (FileInfo file in files) {
-                fileList.Add(file.Name);
+                fileList.Add(file.Name.Replace(".md", ""));
             }
 
             return Ok(fileList);
