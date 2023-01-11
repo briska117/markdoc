@@ -7,4 +7,6 @@
 /MarkDocMVC/obj
 /MarkDocMVC/wwwroot/lib
 /.vs/TestMarkDoc/DesignTimeBuild
-*.v1
+/.vs/ProjectEvaluation
+/.vs/TestMarkDoc/v17/.suo
+/MarkDocMVC/wwwroot/posts/NAME_2.md
