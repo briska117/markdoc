@@ -53,5 +53,12 @@ namespace MarkDocMVC.Controllers {
             result = this._fileService.CreateAndWriteFile(Environment.WebRootPath + "/posts/MarkdownTagHelper.md", documentContent.DocumentContent);
             return Ok(result);
         }
+
+        [HttpPost]
+        public IActionResult AddDocumentation([FromBody] DocumentationModel document) {
+            string result;
+            result = this._fileService.CreateAndWriteFile($"{Environment.WebRootPath}/posts/{document.DocumentationFileName}.md", document.DocumentContent);
+            return Ok(result);
+        }
     }
 }
