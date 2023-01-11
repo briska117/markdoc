@@ -82,8 +82,9 @@ namespace MarkDocMVC.Controllers {
         }
 
         [HttpGet]
-        public IActionResult GetContentFiles(DocumentationModel document) {
-            return Ok();
+        public IActionResult GetContentFiles(String documentFileName) {
+            string result = this._fileService.ReadFile(Environment.WebRootPath + $"/posts/{documentFileName}.md");
+            return Ok(result);
         }
     }
 }
