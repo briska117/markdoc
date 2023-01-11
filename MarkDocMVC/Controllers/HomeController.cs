@@ -21,7 +21,7 @@ namespace MarkDocMVC.Controllers {
 
         public IActionResult Index() {
             ViewData["marker"] = this._fileService.ReadFile(Environment.WebRootPath + "/posts/MarkdownTagHelper.md");
-            this.gitService.CommitChanges("RocoElWuero", "usuario917@gmail.com"); //
+            this.gitService.CommitChanges("RocoElWuero", "usuario917@gmail.com");
 
             return View();
         }
@@ -68,5 +68,7 @@ namespace MarkDocMVC.Controllers {
             result = this._fileService.CreateAndWriteFile($"{Environment.WebRootPath}/posts/{document.DocumentationFileName}.md", document.DocumentContent);
             return Ok(result);
         }
+
+        //[HttpGet]
     }
 }
