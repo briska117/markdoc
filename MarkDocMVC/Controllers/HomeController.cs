@@ -57,6 +57,9 @@ namespace MarkDocMVC.Controllers {
         [HttpPost]
         public IActionResult AddDocumentation([FromBody] DocumentationModel document) {
             string result;
+            if(!ModelState.IsValid) {
+                return BadRequest();
+            }
             result = this._fileService.CreateAndWriteFile($"{Environment.WebRootPath}/posts/{document.DocumentationFileName}.md", document.DocumentContent);
             return Ok(result);
         }
