@@ -69,6 +69,17 @@ namespace MarkDocMVC.Controllers {
             return Ok(result);
         }
 
-        //[HttpGet]
+        [HttpGet]
+        public IActionResult GetListFiles(DocumentationModel document) {
+            DirectoryInfo dirInfo = new DirectoryInfo($"{Environment.WebRootPath}/posts/");
+            List<FileInfo> files = dirInfo.GetFiles().ToList();
+
+            return View(files);
+        }
+
+        [HttpGet]
+        public IActionResult GetContentFiles(DocumentationModel document) {
+            return Ok();
+        }
     }
 }
