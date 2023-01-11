@@ -73,8 +73,12 @@ namespace MarkDocMVC.Controllers {
         public IActionResult GetListFiles() {
             DirectoryInfo dirInfo = new DirectoryInfo($"{Environment.WebRootPath}/posts/");
             List<FileInfo> files = dirInfo.GetFiles().ToList();
+            List<String> fileList = new List<string>();
+            foreach (FileInfo file in files) {
+                fileList.Add(file.Name);
+            }
 
-            return Ok(new JsonResult(files));
+            return Ok(fileList);
         }
 
         [HttpGet]
