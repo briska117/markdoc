@@ -30,6 +30,11 @@ namespace MarkDocMVC.Controllers {
 
             return View();
         }
+        public IActionResult AddDocumentation() {
+            DocumentationModel model= new DocumentationModel();
+
+            return View(model);
+        }
 
         [HttpGet]
         public IActionResult ReadFile() {
@@ -55,7 +60,7 @@ namespace MarkDocMVC.Controllers {
         }
 
         [HttpPost]
-        public IActionResult AddDocumentation([FromBody] DocumentationModel document) {
+        public IActionResult AddDocumentation(DocumentationModel document) {
             string result;
             if(!ModelState.IsValid) {
                 return BadRequest();
