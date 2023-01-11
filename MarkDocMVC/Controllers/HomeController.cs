@@ -70,7 +70,7 @@ namespace MarkDocMVC.Controllers {
         }
 
         [HttpGet]
-        public IActionResult GetListFiles(DocumentationModel document) {
+        public IActionResult GetListFiles() {
             DirectoryInfo dirInfo = new DirectoryInfo($"{Environment.WebRootPath}/posts/");
             List<FileInfo> files = dirInfo.GetFiles().ToList();
 
