@@ -83,6 +83,9 @@ namespace MarkDocMVC.Controllers {
 
         [HttpGet]
         public IActionResult GetContentFiles(String documentFileName) {
+            if (String.IsNullOrEmpty(documentFileName)) {
+                return BadRequest("Document cannot be empty");
+            }
             string result = this._fileService.ReadFile(Environment.WebRootPath + $"/posts/{documentFileName}.md");
             return Ok(result);
         }
