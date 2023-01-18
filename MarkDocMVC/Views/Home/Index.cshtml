@@ -7,8 +7,12 @@
 <script type="text/javascript" src="~/node_modules/tui-image-editor/dist/tui-image-editor.js"></script>
 <script>
     const options = {
-        //...
-        usageStatistics: false,
+        includeUI: {
+      loadImage: {
+        path: 'img/sampleImage.jpg',
+        name: 'SampleImage',
+      }
+    }
     };
 
     const imageEditor = new tui.ImageEditor('#tui-image-editor', options);
