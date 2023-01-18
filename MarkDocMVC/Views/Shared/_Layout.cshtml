@@ -46,35 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://uicdn.toast.com/tui-image-editor/latest/tui-image-editor.js"></script>
-    <script type="module">
-        const ImageEditor = require('tui-image-editor');
-        const FileSaver = require('file-saver'); //to download edited image to local. Use after npm install file-saver
-        const blackTheme = require('./js/theme/black-theme.js');
-        const locale_ru_RU = {
-          // override default English locale to your custom
-          Crop: 'Обзрезать',
-          'Delete-all': 'Удалить всё',
-          // etc...
-        };
-        const instance = new ImageEditor(document.querySelector('#tui-image-editor'), {
-          includeUI: {
-            loadImage: {
-              path: 'img/sampleImage.jpg',
-              name: 'SampleImage',
-            },
-            locale: locale_ru_RU,
-            theme: blackTheme, // or whiteTheme
-            initMenu: 'filter',
-            menuBarPosition: 'bottom',
-          },
-          cssMaxWidth: 700,
-          cssMaxHeight: 500,
-          selectionStyle: {
-            cornerSize: 20,
-            rotatingPointOffset: 70,
-          },
-        });
-    </script>
+    <script type="module" src="~/js/tui-image-editor.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
