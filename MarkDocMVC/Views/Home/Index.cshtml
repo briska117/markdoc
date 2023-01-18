@@ -8,12 +8,21 @@
 <script type="text/javascript" src="~/node_modules/tui-image-editor/dist/tui-image-editor.js"></script>
 <script>
     const options = {
-        cssMaxWidth: 700,
-        cssMaxHeight: 500,
-        selectionStyle: {
+includeUI: {
+        loadImage: {
+          path: 'img/sampleImage.jpg',
+          name: 'SampleImage',
+        },
+        initMenu: 'filter',
+        menuBarPosition: 'bottom',
+      },
+      cssMaxWidth: 700,
+      cssMaxHeight: 500,
+      selectionStyle: {
         cornerSize: 20,
         rotatingPointOffset: 70,
-        }
+      }
+
     };
 
     const imageEditor = new tui.ImageEditor('#tui-image-editor', options);
