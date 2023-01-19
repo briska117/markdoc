@@ -35,7 +35,13 @@
         };
         const imageEditor = new tui.ImageEditor(document.querySelector('#tui-image-editor'), options);
     }
+    function replaceLogoImage() {
+        var elements = document.getElementsByClassName("tui-image-editor-header-logo");
+        var element = elements[0];
+        console.log(element);
+    }
     addEventListener('DOMContentLoaded', (event) => {
         start();
+        replaceLogoImage();
     });
 </script>
