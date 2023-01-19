@@ -13,25 +13,34 @@
 
 <link rel="stylesheet" href="https://uicdn.toast.com/tui-image-editor/latest/tui-image-editor.css" />
 <div id="tui-image-editor"></div>
-<img src="./img/sampleImage.jpg"/>
-<script type="text/javascript" src="~/node_modules/tui-image-editor/dist/tui-image-editor.js"></script>
+@*<img src="./img/sampleImage.jpg"/>*@
+<script type="text/javascript" src="~/lib/tui-image-editor/dist/tui-image-editor.js"></script>
 <script>
-    const options = {
-includeUI: {
-        loadImage: {
-          path: 'img/sampleImage.jpg',
-          name: 'SampleImage',
-        },
-        initMenu: 'filter',
-        menuBarPosition: 'bottom',
-      },
-      cssMaxWidth: 700,
-      cssMaxHeight: 500,
-      selectionStyle: {
-        cornerSize: 20,
-        rotatingPointOffset: 70,
-      }
+   
+
+function start() {
+      const options = {
+  includeUI: {
+    loadImage: {
+      path: './img/sampleImage.jpg',
+      name: 'SampleImage',
+    },
+    initMenu: 'filter',
+    menuBarPosition: 'bottom',
+  },
+  cssMaxWidth: 700,
+  cssMaxHeight: 500,
+  selectionStyle: {
+    cornerSize: 20,
+    rotatingPointOffset: 70,
+  }
     };
 
-    const imageEditor = new tui.ImageEditor('#tui-image-editor', options);
+    const imageEditor = new tui.ImageEditor(document.querySelector('#tui-image-editor'), options);
+}
+
+
+addEventListener('DOMContentLoaded', (event) => {
+    start();
+                });
 </script>
